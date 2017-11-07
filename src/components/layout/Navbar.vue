@@ -1,9 +1,14 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
+    <!--开关左侧菜单-->
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-    <levelbar></levelbar>
-    <tabs-view></tabs-view>
+    <!--路径位置-->
+    <levelbar/>
+    <!--快捷导航块-->
+    <tabs-view/>
+    <!--全屏按钮-->
     <screenfull class='screenfull'></screenfull>
+    <!--下拉-->
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
         <img class="user-avatar" src="../../assets/avatar.gif">
@@ -11,9 +16,7 @@
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
         <router-link class='inlineBlock' to="/">
-          <el-dropdown-item>
-            首页
-          </el-dropdown-item>
+          <el-dropdown-item>首页</el-dropdown-item>
         </router-link>
         <el-dropdown-item divided>
           <span @click="logout" style="display:block;">退出登录</span>
@@ -39,7 +42,7 @@ export default {
   },
   data() {
     return {
-      'name': 'laravue',
+      'name': 'cheyy',
       'avatar': ''
     }
   },
@@ -49,9 +52,13 @@ export default {
     ])
   },
   methods: {
+    // 开关左侧菜单
     toggleSideBar() {
-      this.$store.dispatch('ToggleSideBar')
+      this.$store.dispatch('ToggleSideBar');
     },
+    /**
+     * 退出登录
+     */
     logout() {
       this.$store.dispatch('accountLogoutSubmit').then(
         res => { this.$router.push('/login') }

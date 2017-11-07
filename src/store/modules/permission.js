@@ -36,20 +36,20 @@ function filterAsyncRouter(asyncRouterMap, menus) {
 const permission = {
   state: {
     routers: constantRouterMap,
-    addRouters: []
+    addRouters: [],
   },
   mutations: {
     [types.SET_ROUTERS]: (state, routers) => {
-      state.addRouters = routers
-      state.routers = constantRouterMap.concat(routers)
+      state.addRouters = routers;
+      state.routers = constantRouterMap.concat(routers);
     }
   },
   actions: {
     generateRoutes({ commit }, data) {
       return new Promise(resolve => {
-        let accessedRouters = filterAsyncRouter(asyncRouterMap, data.menus)
-        commit(types.SET_ROUTERS, accessedRouters)
-        resolve()
+        let accessedRouters = filterAsyncRouter(asyncRouterMap, data.menus);
+        commit(types.SET_ROUTERS, accessedRouters);
+        resolve();
       })
     }
   }

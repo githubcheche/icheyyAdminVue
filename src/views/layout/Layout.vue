@@ -1,9 +1,12 @@
 <template>
   <div class="app-wrapper" :class="{hideSidebar: !sidebar.opened}">
+    <!--侧边栏-->
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
-      <navbar></navbar>
-      <app-main></app-main>
+      <!--顶部导航-->
+      <navbar/>
+      <!--内容-->
+      <app-main/>
     </div>
   </div>
 </template>
@@ -20,7 +23,7 @@ export default {
   },
   computed: {
     sidebar() {
-      return this.$store.state.app.sidebar
+      return this.$store.state.app.sidebar;//侧边栏是否打开
     }
   }
 }

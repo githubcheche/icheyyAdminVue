@@ -11,12 +11,13 @@ import SidebarItem from './SidebarItem'
 export default {
   components: { SidebarItem },
   computed: {
+    // vuex中getters.js定义
     ...mapGetters([
       'permission_routers',
       'sidebar'
     ]),
     isCollapse() {
-      return !this.sidebar.opened
+      return !this.sidebar.opened;
     }
   }
 }

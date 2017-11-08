@@ -35,16 +35,16 @@ function filterAsyncRouter(asyncRouterMap, menus) {
 
 const permission = {
   state: {
-    routers: constantRouterMap,
-    addRouters: [],
+    routers: constantRouterMap,//渲染左侧菜单
+    addRouters: [],//需要加载到Router对象中去
   },
   mutations: {
     [types.SET_ROUTERS]: (state, routers) => {
       state.addRouters = routers;
-      state.routers = constantRouterMap.concat(routers);
+      state.routers = constantRouterMap.concat(routers);// 追加渲染路由
     }
   },
-  actions: {
+  actions: {/////////////以下是对外接口/////////////
     generateRoutes({ commit }, data) {
       return new Promise(resolve => {
         let accessedRouters = filterAsyncRouter(asyncRouterMap, data.menus);

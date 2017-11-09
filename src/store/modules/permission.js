@@ -4,21 +4,21 @@ import store from '../index';
 
 /**
  * 通过meta.role判断是否与当前用户权限匹配
- * @param roles
- * @param route
+ * @param menus api传入表
+ * @param route 全部权限路由表中某个权限路由
  */
 function hasPermission(menus, route) {
   if (route.path) {
-    return menus.some(menu => route.path == menu)
+    return menus.some(menu => route.path == menu);
   } else {
-    return true
+    return true;
   }
 }
 
 /**
  * 递归过滤异步路由表，返回符合用户角色权限的路由表
- * @param asyncRouterMap
- * @param roles
+ * @param asyncRouterMap 全部权限路由表
+ * @param menus api传入表
  */
 function filterAsyncRouter(asyncRouterMap, menus) {
   const accessedRouters = asyncRouterMap.filter(route => {
@@ -29,7 +29,7 @@ function filterAsyncRouter(asyncRouterMap, menus) {
       return true
     }
     return false
-  })
+  });
   return accessedRouters
 }
 

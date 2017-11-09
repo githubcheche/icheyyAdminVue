@@ -7,7 +7,7 @@ export default {
     params = {
       'login': res.username,
       'password': res.password
-    }
+    };
     return Vue.http.post('user/login', params);
   },
   // 登出

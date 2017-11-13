@@ -55,7 +55,7 @@ export const asyncRouterMap = [
     redirect: 'noredirect',
     icon: 'th-large',
     children: [
-      // { path: '/articles/index', component: _import('content/Articles'), name: '文章列表' },
+      { path: '/articles/index', component: _import('content/Articles'), name: '文章列表' },
     ]
   }
 ];
